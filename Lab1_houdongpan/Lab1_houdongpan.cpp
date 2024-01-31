@@ -3,26 +3,59 @@
 
 #include <iostream>
 using namespace std;
-
-
-
-int main()
-{
-cout << "Hello, my name is Houdong and I am going to solve the equation: Ax+B=0" << endl;
-cout << "For x" <<endl;
+void printMenu(int& choice) {
+	cout << "Welcome to my program, please select an operation to perform:" << endl;
+	cout << "1. Addition" << endl;
+	cout << "2. Subtraction" << endl;
+	cout << "3. Multiplication" << endl;
+	cout << "3. Division" << endl;
+	cout << "\nYour Selection: ";
+	cin >> choice;
+}
+void getChoices(float& A, float& B) {
+	cout << "Please enter the first value:";
+	cin >> A;
+	cout << "Please enter the Second value:";
+	cin >> B;
+	// The rest of this function is an exercise to the reader
+}
+void firstChoice(float A, float B) {
+	cout << A + B << endl;
+}
+void secondChoice(float A, float B) {
+	cout << A - B << endl;
+}
+void thirdChoice(float A, float B) {
+	cout << A * B << endl;
+}
+void fourthChoice(float A, float B) {
+	if (B != 0) {
+		cout << A / B << endl;
+	}
+	else {
+		cout << "Can't be devided by zero" << endl;
+	}
+}
+int main() {
+	int choice;
 float A;
 float B;
-float x;
-cout << "Please enter a value for A:" << endl;
-cin >> A;
-cout << "Please enter a value for B:" << endl;
-cin >> B;
-cout << "Solving" << A << "x+" << B <<"=0 for x..." << endl;
-x = -B/A;
-cout << "The answer is:";
-cout << "x=" << x<< endl;
+	printMenu(choice);
+	getChoices(A, B);
+	if (choice == 1) {
+		firstChoice(A, B);
+	}
+	if (choice == 2) {
+		secondChoice(A, B);
+	}
+	if (choice == 3) {
+		thirdChoice(A, B);
+	}
+	if (choice == 2) {
+		fourthChoice(A, B);
+	}
+	return 0;
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
