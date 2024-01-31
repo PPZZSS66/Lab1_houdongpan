@@ -8,7 +8,7 @@ void printMenu(int& choice) {
 	cout << "1. Addition" << endl;
 	cout << "2. Subtraction" << endl;
 	cout << "3. Multiplication" << endl;
-	cout << "3. Division" << endl;
+	cout << "4. Division" << endl;
 	cout << "\nYour Selection: ";
 	cin >> choice;
 }
@@ -17,20 +17,22 @@ void getChoices(float& A, float& B) {
 	cin >> A;
 	cout << "Please enter the Second value:";
 	cin >> B;
+	cout << endl;
+	
 	// The rest of this function is an exercise to the reader
 }
 void firstChoice(float A, float B) {
-	cout << A + B << endl;
+	cout << A << "+" << B <<"=" << A + B << endl;
 }
 void secondChoice(float A, float B) {
-	cout << A - B << endl;
+	cout << A << "-" << B << "="<< A - B << endl;
 }
 void thirdChoice(float A, float B) {
-	cout << A * B << endl;
+	cout << A << "*" << B << "="<<A * B << endl;
 }
 void fourthChoice(float A, float B) {
 	if (B != 0) {
-		cout << A / B << endl;
+		cout << A << "/" << B << "="<<A / B << endl;
 	}
 	else {
 		cout << "Can't be devided by zero" << endl;
@@ -38,8 +40,8 @@ void fourthChoice(float A, float B) {
 }
 int main() {
 	int choice;
-float A;
-float B;
+	float A;
+	float B;
 	printMenu(choice);
 	getChoices(A, B);
 	if (choice == 1) {
@@ -51,7 +53,7 @@ float B;
 	if (choice == 3) {
 		thirdChoice(A, B);
 	}
-	if (choice == 2) {
+	if (choice == 4) {
 		fourthChoice(A, B);
 	}
 	return 0;
