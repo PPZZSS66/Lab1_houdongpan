@@ -3,59 +3,109 @@
 
 #include <iostream>
 using namespace std;
-void printMenu(int& choice) {
-	cout << "Welcome to my program, please select an operation to perform:" << endl;
-	cout << "1. Addition" << endl;
-	cout << "2. Subtraction" << endl;
-	cout << "3. Multiplication" << endl;
-	cout << "4. Division" << endl;
-	cout << "\nYour Selection: ";
-	cin >> choice;
+void printMenu() {
+	cout << "Please Select which operation to perform:" << endl;
+	cout << "\t1. Factorial" << endl;
+	cout << "\t2. Arithmetic Series" << endl;
+	cout << "\t3. Geometric Series" << endl;
+	cout << "\t4. Exit" << endl;
+	cout << "Your Selection: ";
 }
-void getChoices(float& A, float& B) {
-	cout << "Please enter the first value:";
-	cin >> A;
-	cout << "Please enter the Second value:";
-	cin >> B;
-	cout << endl;
-	
-	// The rest of this function is an exercise to the reader
-}
-void firstChoice(float A, float B) {
-	cout << A << "+" << B <<"=" << A + B << endl;
-}
-void secondChoice(float A, float B) {
-	cout << A << "-" << B << "="<< A - B << endl;
-}
-void thirdChoice(float A, float B) {
-	cout << A << "*" << B << "="<<A * B << endl;
-}
-void fourthChoice(float A, float B) {
-	if (B != 0) {
-		cout << A << "/" << B << "="<<A / B << endl;
+void factorial() {
+	cout << "Factorial:" << endl;
+	int factorial = 1;
+	int n;
+	cout << "Enter a number: ";
+	cin >> n;
+	while (n < 0) {
+		cout << "Nice try,please enter a POSITIVE number:";
+		cin >> n;
 	}
-	else {
-		cout << "Can't be devided by zero" << endl;
+	cout << n << "! = ";
+	for (int i = 1; i <= n; i++) {
+		factorial =  factorial * i;
+		cout << i << (i < n ? " * " : " = ");
 	}
+	cout << factorial << endl;
+}
+void arithmetic() {
+	cout << "Arithmetic Series:" << endl;
+	int start;
+	cout << "Enter a number to start:";
+	cin >> start;
+	int add;
+	cout << "Enter a number to add each time: ";
+	cin >> add;
+	int n;
+	cout << "Enter the number of elements in the series: ";
+	cin >> n;
+	if (n <= 0) {
+		cout << "Nice try,please enter a POSITIVE number:" << endl;
+		cin >> n;
+	}
+	int sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum += start + i * add;
+		cout << start + i * add << (i < n - 1 ? " + " : " = ");
+	}
+	cout << sum << endl;
+}
+void geometric () {
+	cout << "Geometric series: "<<endl ;
+	int r ;
+	cout << "Enter a number to start:";
+	cin >> r;
+	int a;
+	cout << "Enter a number to multiply each time:";
+	cin >> a;
+	int n;
+	cout << "Enter the number of elements in the series: ";
+	cin >> n;
+
+	if (n < 0) {
+		cout << "Nice try,please enter a POSITIVE number:" << endl;
+		cin >> n;
+	}
+
+	int num = r ; 
+	int sum = 0;
+
+	for (int i = 0; i < n; i++) {
+		if (i > 0) { 
+			num = num * a ;
+		}
+		cout << num  << (i < n - 1 ? "+ " : "=");
+		sum += num ;
+	}
+	cout << sum << endl ;
 }
 int main() {
 	int choice;
-	float A;
-	float B;
-	printMenu(choice);
-	getChoices(A, B);
-	if (choice == 1) {
-		firstChoice(A, B);
-	}
-	if (choice == 2) {
-		secondChoice(A, B);
-	}
-	if (choice == 3) {
-		thirdChoice(A, B);
-	}
-	if (choice == 4) {
-		fourthChoice(A, B);
-	}
+	char again;
+	do {
+		printMenu();
+		cin >> choice;
+		// Quit if user chooses to exit (or any invalid choice)
+		if (choice > 4 || choice < 1) {
+			cout << "Invalid choice." << endl;
+			break;
+		}
+		else if (choice == 1) {
+			factorial();
+		}
+		else if (choice == 2) {
+			arithmetic();
+		}
+		else if (choice == 3) {
+			geometric();
+		}
+		else if (choice == 4) {
+			cout << "Exiting program." << endl ;
+			break;
+		}
+		cout << "Go Again? [Y/N] ";
+		cin >> again;
+	} while (again == 'y' || again == 'Y');
 	return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
