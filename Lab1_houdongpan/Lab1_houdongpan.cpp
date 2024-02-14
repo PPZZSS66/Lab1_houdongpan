@@ -40,7 +40,7 @@ void arithmetic() {
 	cout << "Enter the number of elements in the series: ";
 	cin >> n;
 	if (n <= 0) {
-		cout << "Nice try,please enter a POSITIVE number:" << endl;
+		cout << "Nice try,please enter a POSITIVE number:" ;
 		cin >> n;
 	}
 	int sum = 0;
@@ -63,7 +63,7 @@ void geometric () {
 	cin >> n;
 
 	if (n < 0) {
-		cout << "Nice try,please enter a POSITIVE number:" << endl;
+		cout << "Nice try,please enter a POSITIVE number:";
 		cin >> n;
 	}
 
