@@ -20,8 +20,8 @@ char encode(char inputChr,vector<char>& cipher) {
 
 string encodeString( string& input, vector<char>& cipher) {
     string encoded = "";
-    for (char ch : input) {
-        encoded += encode(ch, cipher);
+    for (char chr : input) {
+        encoded += encode(chr, cipher);
     }
     return encoded;
 }
